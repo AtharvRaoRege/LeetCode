@@ -1,0 +1,31 @@
+-> HashMap => (Key,value);
+-> To add elements in the HashMap -> hm.put(Key, Value);
+-> To get the value of the key -> hm.get(Key);
+-> To check if the value exists in the hashmap -> hm.containsValue();
+-> To check if the Key exists in the hashmap -> hm.containsKey();
+-> To iterate through the hashmap => ForEach Loop
+-> To get the value of the key if exists , and if does not exists return the default value which
+   is set by us -> hm.getOrDefault(key,defaultValue).
+-> hm.forEach(Key,Value) -> {
+    any statement;
+}
+
+* the value or key in the for each loop is not an integer.
+* so we can not be returned as an integer.
+* the value or key must be converted to an integer.
+* TO CONVERT INTO INTEGER
+
+-> create an atomic integer
+-> AtomicInteger ans = new AtomicInteger();
+
+-> now in foreach loop
+
+
+-> hm.forEach(key,value)->{
+    if(value == 2) ans.set(value);
+}
+-> the value is stored in an atomic integer .
+-> now we have to convert it to an integer.
+
+-> int realAns = ans.get();
+-> this will store the real integer and we can use it as an integer.
