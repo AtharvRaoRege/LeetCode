@@ -1,25 +1,32 @@
 package LeetCodeEasyString;
 import java.util.*;
 public class Leet290 {
-    public static void wordPattern(String pattern, String s) {
-        List<String> pat = new ArrayList<>();
-        List<String> s1 = new ArrayList<>();
-        Map<String, Integer> hm = new HashMap<>();
-        pattern.trim();
-        for (int i = 0; i < pattern.length(); i++) {
-            StringBuilder sb = new StringBuilder();
-            int j = i;
-            while (pattern.charAt(j) != ' ') {
-                sb.append(pattern.charAt(j++));
+    public static boolean wordPattern(String pattern, String s) {
+        Map<Character,String> hm = new HashMap<>();
+        String pattern1 = pattern.trim();
+        String []ss = s.split(" ");
+        int j = 0;
+        for(char i:pattern1.toCharArray()){
+            if(!hm.containsKey(i)){
+                if(!hm.containsValue(ss[j])){
+                     hm.put(i,ss[j++]);
+                }else{
+                    System.out.println("1");
+                    return false;
+                }
+            }else{
+                if(!hm.get(i).equals( ss[j++])) {
+                    System.out.println("2");
+                    return false;
+                }
             }
-            pat.add(String.valueOf(sb));
-            i = j+1;
         }
-        System.out.println(pat);
+        return true;
+//        System.out.println(hm);
 //        return true;
     }
 
     public static void main(String[] args) {
-        wordPattern("abba","dog cat cat dog");
+        System.out.println(wordPattern("abba","dog cat cat dog"));
     }
 }
