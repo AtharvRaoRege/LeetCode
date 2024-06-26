@@ -17,7 +17,7 @@ package GFG;
 // Input: s = "nobitaa"
 // Output: EVEN
 
-//                              n o b i t a
+//                                    n o b i t a
 
 public class OddEvenProblem {
 //    public static String oddEven(String s) {
