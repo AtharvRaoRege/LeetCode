@@ -1,41 +1,49 @@
 package LinkedList;
 import static LinkedList.ListNode.printLinkedList;
 public class PallindromeLinkedList {
-    public static void isPalindrome(ListNode head) {
+    public static boolean isPalindrome(ListNode head) {
+        ListNode pall = new ListNode(0);
+        ListNode pal = pall;
         ListNode temp = head;
-        ListNode dummy = new ListNode(0);
-        ListNode ptr = dummy;
+
+//      copy linked list
+
         while(temp != null){
-            ptr.next = new ListNode(temp.data);
+            pal.next = new ListNode(temp.data);
             temp = temp.next;
-            ptr = ptr.next;
+            pal = pal.next;
         }
-        ListNode prev = null;
+        pal = pall.next;
+
+//      reverse linked list
+
         ListNode curr = head;
+        ListNode prev = null;
         ListNode front = null;
+
         while(curr != null){
-            front = ptr.next;
+            front = curr.next;
             curr.next = prev;
-            prev = ptr;
+            prev = curr;
             curr = front;
         }
-        prev = dummy.next;
-        temp = head;
-        while(ptr != null && temp != null){
-            if(!(ptr.data == temp.data)) System.out.println(false);
-            ptr = ptr.next;
-            temp = temp.next;
+        curr = prev;
+
+//      check Linked List
+
+        while(curr != null){
+            if(curr.data != pal.data) return false;
+            curr = curr.next;
+            pal = pal.next;
         }
-        temp = head;
-        printLinkedList(prev);
-//        printLinkedList(temp);
-//        return true;
+        System.out.println("hell");
+        return true;
     }
 
     public static void main(String[] args) {
         ListNode head = new ListNode(10);
         head.next = new ListNode(0);
-        head.next.next = new ListNode(30);
-        isPalindrome(head);
+        head.next.next = new ListNode(10);
+        System.out.println(isPalindrome(head));
     }
 }
