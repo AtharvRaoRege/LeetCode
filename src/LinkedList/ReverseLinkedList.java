@@ -1,5 +1,6 @@
 package LinkedList;
 import static LinkedList.ListNode.*;
+import static LinkedList.ReverseBetween.*;
 public class ReverseLinkedList {
         public static ListNode reverseLinkedList(ListNode head) {
             ListNode curr = head;
@@ -18,6 +19,6 @@ public class ReverseLinkedList {
         ListNode head = new ListNode(10);
         head.next = new ListNode(0);
         head.next.next = new ListNode(20);
-        printLinkedList(reverseLinkedList(head));
+        printList(reverseBetween(head,1,3));
     }
 }

@@ -1,57 +1,39 @@
 package LinkedList;
 import java.util.*;
 
-import static LinkedList.ListNode.printLinkedList;
+import static LinkedList.ListNode.arrayToList;
+import static LinkedList.ListNode.printList;
 
 // Leetcode 2
 public class Add2Numbers {
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode h1 = l1;
-        ListNode h2  = l2;
-        List<Integer> arr1 = new ArrayList<>();
-        List<Integer> arr2 = new ArrayList<>();
-        while(h1 != null){
-            arr1.add(h1.data);
-            h1 = h1.next;
+        ListNode res = new ListNode(0);
+        ListNode temp = res;
+        int carry = 0;
+        ListNode list1 = l1;
+        ListNode list2 = l2;
+        while(list1 != null || list2 != null){
+            int sum = carry;
+            if(list1 != null) {
+                sum += list1.val;
+                list1 = list1.next;
+            }
+            if(list2 != null){
+                sum += list2.val;
+                list2 = list2.next;
+            }
+            carry = sum/10;
+            sum %= 10;
+            temp.next = new ListNode(sum);
+            temp = temp.next;
         }
-        while(h2 != null){
-            arr2.add(h2.data);
-            h2 = h2.next;
-        }
-        StringBuilder sb1 = new StringBuilder();
-        StringBuilder sb2 = new StringBuilder();
-        StringBuilder sum1 = new StringBuilder();
-        for(int i : arr1) sb1.append(i);
-        for(int i : arr2) sb2.append(i);
-        int sum = Integer.parseInt(sb1.toString()) + Integer.parseInt(sb2.toString());
-        sum1.append(sum).reverse();
-        System.out.println(sum1);
-        int []arr = new int[sum1.toString().length()];
-        ListNode dummy = new ListNode(0);
-        h1 = dummy;
-        int j = 0;
-        for(char i : sum1.toString().toCharArray()){
-            arr[j++] = Integer.parseInt(String.valueOf(i));
-        }
-        for(int i: arr){
-            h1.next = new ListNode(i);
-            h1 = h1.next;
-        }
-        return dummy.next;
-//        System.out.println(Arrays.toString(arr));
-//        printLinkedList(dummy.next);
+        if(carry == 1) temp.next = new ListNode(1);
+        return res.next;
     }
 
     public static void main(String[] args) {
-        ListNode h1 = new ListNode(2);
-        h1.next = new ListNode(4);
-        h1.next.next = new ListNode(3);
-
-        ListNode h2 = new ListNode(5);
-        h2.next = new ListNode(6);
-        h2.next.next = new ListNode(4);
-
-        addTwoNumbers(h1,h2);
-//        printLinkedList(dummy.next);
+        int []arr1 = {2,4,3};
+        int []arr2 = {5,6,4};
+        printList(addTwoNumbers(arrayToList(arr1),arrayToList(arr2)));
     }
 }

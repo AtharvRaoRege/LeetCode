@@ -1,5 +1,5 @@
 package LinkedList;
-import static LinkedList.ListNode.printLinkedList;
+import static LinkedList.ListNode.printList;
 public class PallindromeLinkedList {
     public static boolean isPalindrome(ListNode head) {
         ListNode pall = new ListNode(0);
@@ -9,7 +9,7 @@ public class PallindromeLinkedList {
 //      copy linked list
 
         while(temp != null){
-            pal.next = new ListNode(temp.data);
+            pal.next = new ListNode(temp.val);
             temp = temp.next;
             pal = pal.next;
         }
@@ -32,7 +32,7 @@ public class PallindromeLinkedList {
 //      check Linked List
 
         while(curr != null){
-            if(curr.data != pal.data) return false;
+            if(curr.val != pal.val) return false;
             curr = curr.next;
             pal = pal.next;
         }

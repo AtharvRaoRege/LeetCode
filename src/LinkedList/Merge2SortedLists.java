@@ -4,7 +4,7 @@ public class Merge2SortedLists {
     public static void printLinkedList(ListNode head){
         ListNode ptr = head;
         while(ptr != null){
-            System.out.print(ptr.data+" ");
+            System.out.print(ptr.val+" ");
             ptr = ptr.next;
         }
     }
@@ -14,23 +14,23 @@ public class Merge2SortedLists {
         ListNode l1 = list1;
         ListNode l2 = list2;
         while (l1 != null && l2 != null) {
-            if(l1.data < l2.data) {
-                list.next = new ListNode(l1.data);
+            if(l1.val < l2.val) {
+                list.next = new ListNode(l1.val);
                 l1 = l1.next;
             }else {
-                list.next = new ListNode(l2.data);
+                list.next = new ListNode(l2.val);
                 l2 = l2.next;
             }
             list = list.next;
         }
 
         while(l1 != null){
-            list.next = new ListNode(l1.data);
+            list.next = new ListNode(l1.val);
             l1 = l1.next;
             list = list.next;
         }
         while(l2 != null){
-            list.next = new ListNode(l2.data);
+            list.next = new ListNode(l2.val);
             l2 = l2.next;
             list = list.next;
         }

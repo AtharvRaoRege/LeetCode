@@ -19,8 +19,25 @@ package GFG;
 
 //                                    n o b i t a
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class OddEvenProblem {
-//    public static String oddEven(String s) {
-//
-//    }
+    public static void oddEven(String s) {
+        int x = 0, y = 0;
+        Map<Character,Integer> hm = new HashMap<>();
+        for(char i : s.toCharArray()){
+            hm.put(i, hm.getOrDefault(i,0)+1);
+        }
+        for(char i : s.toCharArray()){
+            int ch = (int)i;
+            if(ch % 2 == 0 && hm.get(i) % 2 == 0) x++;
+            if(ch % 2 == 1 && hm.get(i) % 2 == 1) y++;
+        }
+        System.out.println(x+y);
+    }
+
+    public static void main(String[] args) {
+        oddEven("nobitaa");
+    }
 }

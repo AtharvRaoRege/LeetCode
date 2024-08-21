@@ -9,10 +9,10 @@ public class RemoveNodeFromSortedList {
         ListNode ptr = head;
         int prev = -101;
         while(ptr != null){
-            if(ptr.data == prev){
+            if(ptr.val == prev){
 
             }else {
-                prev = ptr.data;
+                prev = ptr.val;
                 ptr = ptr.next;
             }
         }

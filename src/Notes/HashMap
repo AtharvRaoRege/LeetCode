@@ -29,3 +29,8 @@
 
 -> int realAns = ans.get();
 -> this will store the real integer and we can use it as an integer.
+
+* for(var e: hm.entrySet()) {
+    e.getKey(); -> key of the set.
+    e.getValue(); -> value of the set.
+}

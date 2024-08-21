@@ -11,7 +11,7 @@ public class RemoveNthNodeFromEnd {
         for(int i = 0; i < pos - 1; i++){
             ptr = ptr.next;
         }
-        System.out.println(ptr.data);
+        System.out.println(ptr.val);
         ptr.next = ptr.next.next;
         return head;
     }
@@ -23,6 +23,6 @@ public class RemoveNthNodeFromEnd {
 //        head.next.next.next = new ListNode(4);
 //        head.next.next.next.next = new ListNode(5);
 //        head.next.next.next.next.next = new ListNode(6);
-        printLinkedList(removeNthFromEnd(head,2));
+        printList(removeNthFromEnd(head,2));
     }
 }

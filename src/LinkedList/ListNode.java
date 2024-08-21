@@ -1,22 +1,24 @@
 package LinkedList;
 
+import java.util.ArrayList;
+
 public class ListNode{
-    int data;
+    int val;
     ListNode next;
+
+    ListNode(){}
     ListNode(int data) {
-        this.data = data;
+        this.val = data;
         this.next = null;
     }
-    ListNode(){}
     ListNode(int val,ListNode next){
-        this.data = val;
+        this.val = val;
         this.next = next;
     }
 
-    public static void printLinkedList(ListNode head1){
-        ListNode head = head1;
+    public static void printList(ListNode head){
         while(head != null){
-            System.out.print(head.data+" ");
+            System.out.print(head.val+" ");
             head = head.next;
         }
     }
@@ -28,13 +30,21 @@ public class ListNode{
         }
         return size;
     }
+    public static ListNode arrayToList(int []nums) {
+        ListNode li = new ListNode(0);
+        ListNode temp = li;
+        for(int i: nums){
+            temp.next = new ListNode(i);
+            temp = temp.next;
+        }
+        return li.next;
+    }
 
     public static void main(String[] args) {
-        ListNode head = new ListNode(1);
-        head.next = new ListNode(2);
-        head.next.next = new ListNode(3);
-        head.next.next.next = new ListNode(4);
-        head.next.next.next.next = new ListNode(5);
-        head.next.next.next.next.next = new ListNode(6);
+        ListNode li = new ListNode(0);
+        li.next = new ListNode(1);
+        li.next.next = new ListNode(2);
+        li.next.next.next = new ListNode(3);
+        int []nums = {1,2,3,4,5};
     }
 }
